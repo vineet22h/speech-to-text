@@ -19,7 +19,7 @@ class Predict:
         self.model = PredModel(self.char_index, char_maxlen, self.audio_maxlen, lstm_size, num_classes, embedding_size, batch_size)
         self.model.compile(optimizer="adam", loss= 'sparse_categorical_crossentropy')
         self.model.build(input_shape = (1, self.audio_maxlen, 161))
-        self.model.load_weights('tts_BiLSTM_segmented_{}.h5'.format(lstm_size))
+        self.model.load_weights('weights/tts_BiLSTM_segmented_{}.h5'.format(lstm_size))
 
     def predict(self, audio_path):
         x_data = spectrogram_from_file(audio_path)
