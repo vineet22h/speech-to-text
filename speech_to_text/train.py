@@ -48,7 +48,7 @@ test_datagen = BatchGenerator(test, char_index, batch_size, num_classes, char_ma
 model = Model(char_index, char_maxlen, audio_maxlen, lstm_size, num_classes, 100)
 model.compile(optimizer="adam", loss= 'sparse_categorical_crossentropy')
 
-callbacks = [ModelCheckpoint('tts_BiLSTM_segmented_{}.h5'.format(lstm_size), save_best_only= True, verbose = 1),
+callbacks = [ModelCheckpoint('weights/tts_BiLSTM_segmented_{}.h5'.format(lstm_size), save_best_only= True, verbose = 1),
              EarlyStopping(patience = 5, verbose = 1),
              ReduceLROnPlateau(patience = 3, verbose = 1)]
 
